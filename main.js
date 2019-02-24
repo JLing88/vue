@@ -1,11 +1,14 @@
 var app = new Vue({
   el: '#app',
   data: {
+    brand: 'Vue Mastery',
     product: 'Socks',
     description: 'A pair of warm, fuzzy socks.',
+    selectedVariant: 0,
     image: './assets/vmSocks-green-onWhite.jpg',
     link: 'http://google.com',
     inventory: 11,
+    inStock: false,
     onSale: false,
     details: ["80% cotton", "20% polyester", "Gender-neutral"],
     variants: [
@@ -34,6 +37,11 @@ var app = new Vue({
     },
     updateProduct(variantImage) {
       this.image = variantImage;
+    }
+  },
+  computed: {
+    title() {
+      return this.brand + " " + this.product;
     }
   }
 })
